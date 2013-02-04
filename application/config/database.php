@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'herokuapp.com';
+$db['default']['hostname'] = 'http://secret-waters-4431.herokuapp.com/';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
 $db['default']['database'] = 'shelfari';
