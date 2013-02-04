@@ -48,9 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'tunnel.pagodabox.com';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
+$db['default']['hostname'] = 'tunnel.pagodabox.com'; //localhost for testing
+$db['default']['port'] = '3306'; //remove
+$db['default']['username'] = 'mariko'; //root
+$db['default']['password'] = 'gLPVn65C'; //''
 $db['default']['database'] = 'shelfari';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
