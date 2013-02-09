@@ -82,7 +82,7 @@
 		</div>
 	</div>
 		<div id="add">
-			<script src="<?php echo base_url();?>js/2.js"></script>		
+			<script src="/application/views/2.js"></script>		
 			<p class="footer">
 				<a id="more">Add book</a>
 			</p>
@@ -105,7 +105,7 @@
 			<p class="footer">
 				<a id="searchmore" style="float:right;">Search by Title</a>
 			</p>
-			<script src="<?php echo base_url();?>js/3.js"></script>	
+			<script src="/application/views/3.js"></script>	
 			<div id="showsearchform" style="display:none;float:right;"> 
 				<form id="searchBook">
 				<label for="title">Title</label><br />
