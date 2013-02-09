@@ -3,13 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>Shelfari 1.0 | Home</title>
-
+	
 	<style type="text/css">
 
 	::selection{ background-color: #E13300; color: white; }
 	::moz-selection{ background-color: #E13300; color: white; }
 	::webkit-selection{ background-color: #E13300; color: white; }
-
+	
 	body {
 		background-color: #fff;
 		margin: 40px;
@@ -56,29 +56,65 @@
 	</style>
 </head>
 <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  	<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+  	<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.6/underscore-min.js"></script>
+  	<script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+	<div id="container">
+		<h1>Book Listings</h1>
 
-<div id="container">
-	<h1>Book Listings</h1>
-
-	<div id="body">
-		<p>The following books are available in the database.</p>
-		<?php
-		echo "<table cellpadding=4>";
-		foreach($results as $row)
-		{
-			echo "<tr>";			
-			echo "<td>".$row->title."</td>"; 
-			echo "<td>".$row->author."</td>";
-			echo "<td>".$row->status."</td>";
-			echo "<td>".anchor('/editbook/index/'.$row->id, 'Edit')."</td>";
-			echo "<td>".anchor('/editbook/delete/'.$row->id, 'Delete')."</td>";
-			echo "</tr>";
-		}
-		echo "</table>";
-		?>	
+		<div id="body">
+			<p>The following books are available in the database.</p>
+			<?php
+			echo "<table cellpadding=4>";
+			foreach($results as $row)
+			{
+				echo "<tr>";			
+				echo "<td>".$row->title."</td>"; 
+				echo "<td>".$row->author."</td>";
+				echo "<td>".$row->status."</td>";
+				echo "<td>".anchor('/editbook/index/'.$row->id, 'Edit')."</td>";
+				echo "<td>".anchor('/editbook/delete/'.$row->id, 'Delete')."</td>";
+				echo "</tr>";
+			}
+			echo "</table>";
+			?>	
+		</div>
 	</div>
-	<p class="footer"><?= anchor('/addbook/index', 'Add book')?><span style="float:right;"><?= anchor('/searchbook/index', 'Search by Title')?></span></p>
-</div>
+		<div id="add">
+			<script src="application/views/2.js"></script>		
+			<p class="footer">
+				<a id="more">Add book</a>
+			</p>
+			<div id="showaddform" style="display:none"> 
+				<form id="addBook">
+				<label for="title">Title</label><br />
+				<input type="input" name="title" /></input><br />
+				<label for="author">Author</label><br />
+				<input type="input" name="author"></input><br />
+				<label for="status">Status</label><br />
+				<select name="status" type="input">
+				<option value="read" selected="selected">Read</option>
+				<option value="unread">Unread</option>
+				</select><br /><br />
+				<input id="submit" type="button" name="submit" value="Add book" /> 
+				</form>	
+			</div>
+		</div>
+		<div id="search">
+			<p class="footer">
+				<a id="searchmore" style="float:right;">Search by Title</a>
+			</p>
+			<script src="application/views/3.js"></script>	
+			<div id="showsearchform" style="display:none;float:right;"> 
+				<form id="searchBook">
+				<label for="title">Title</label><br />
+				<input type="input" name="title" /></input><br />
+				<input id="submit" type="button" name="submit" value="Search book" /> 
+				</form>	
+			</div>
+		</div>
+	
 
 </body>
 </html>
