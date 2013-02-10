@@ -17,16 +17,18 @@ class Get_db extends CI_Model
 		$status=$data->{'status'};
 		$this->db->query("INSERT INTO books (title,author,status) VALUES('$title','$author','$status')");
 	}
-	public function edit($id)
+	public function edit($data)
 	{
-		$title = $_POST['title'];
-		$author = $_POST['author'];
-		$status = $_POST['status'];
-		$this->db->query("UPDATE books set title='$title', author='$author', status='$status' where id=$id");
+		$id=$data->{'id'};
+		$title=$data->{'title'};
+		$author=$data->{'author'};
+		$status=$data->{'status'};
+		$this->db->query("UPDATE books set title='$title', author='$author', status='$status' where id='$id'");
 	}
-	public function delete($id)
+	public function delete($data)
 	{
-		$this->db->query("DELETE from books where id=$id");
+		$pid=$data->{'id'};
+		$this->db->query("DELETE from books where id='$pid'");
 	}
 	public function search($data)
 	{

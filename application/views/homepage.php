@@ -56,29 +56,29 @@
 	</style>
 </head>
 <body>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  	<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-  	<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.6/underscore-min.js"></script>
-  	<script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+	<script src="<?php echo base_url(); ?>js/jquery-1.7.1.min"></script>
+  	<script src="<?php echo base_url(); ?>js/json2.js"></script>
+  	<script src="<?php echo base_url(); ?>js/underscore-min"></script>
+  	<script src="<?php echo base_url(); ?>js/backbone-min"></script>
 	<div id="container">
 		<h1>Book Listings</h1>
 
 		<div id="body">
-			<p>The following books are available in the database.</p>
-			<?php
-			echo "<table cellpadding=4>";
-			foreach($results as $row)
-			{
-				echo "<tr>";			
-				echo "<td>".$row->title."</td>"; 
-				echo "<td>".$row->author."</td>";
-				echo "<td>".$row->status."</td>";
-				echo "<td>".anchor('/editbook/index/'.$row->id, 'Edit')."</td>";
-				echo "<td>".anchor('/editbook/delete/'.$row->id, 'Delete')."</td>";
-				echo "</tr>";
-			}
-			echo "</table>";
-			?>	
+			<p>The following books are available in the database.</p>	
+			<script type="text/template" id="booksview_template">
+  			<li><%= title %>  <%= author %>  <%= status %>   <button class="edit" data-gettitle="<%= title %>" data-getauthor="<%= author %>" data-getstatus="<%= status %>" data-getid="<%= id %>">Edit</button> <button class="delete" data-getid="<%= id %>" >Delete</button></li>
+			</script>
+			<script type="text/template" id="EditTemplate">
+			<form id="editform">
+	    			<input class="title" value="<%= title %>" />
+	    			<input class="author" value="<%= author %>" />
+				<input class="status" value="<%= status %>" />
+				<input class="id" value="<%= id %>" style="display:none" />
+				<input class="editsave" type="button" value="Save"></button>
+			</form>
+			</script>
+			<ol id="books"></ol>
+			<script src="<?php echo base_url(); ?>js/4.js"></script>
 		</div>
 	</div>
 		<div id="add">
@@ -103,10 +103,10 @@
 		</div>
 		<div id="search">
 			<p class="footer">
-				<a id="searchmore" style="float:right;">Search by Title</a>
+				<a id="searchmore">Search by Title</a>
 			</p>
 			<script src="<?php echo base_url(); ?>js/3.js"></script>	
-			<div id="showsearchform" style="display:none;float:right;"> 
+			<div id="showsearchform" style="display:none;"> 
 				<form id="searchBook">
 				<label for="title">Title</label><br />
 				<input type="input" name="title" /></input><br />
@@ -114,7 +114,5 @@
 				</form>	
 			</div>
 		</div>
-	
-
 </body>
 </html>

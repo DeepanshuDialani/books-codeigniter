@@ -49,7 +49,7 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'tunnel.pagodabox.com'; //localhost
-//$db['default']['port'] = '3307'; //remove 3307
+$db['default']['port'] = '3307'; //remove 3307
 $db['default']['username'] = 'mariko'; //root
 $db['default']['password'] = 'gLPVn6SC'; //
 $db['default']['database'] = 'shelfari';

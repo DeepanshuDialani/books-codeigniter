@@ -60,7 +60,6 @@ var AddFormView = Backbone.View.extend({
 		{
 		    //alert(data.toJSON());
 		    lBooksList.add(data); 
-		    lBooksListView.initialize();
 		    //lBooksListView.add(data);
 		    //new BooksTableView();
 		    alert("Data Added");

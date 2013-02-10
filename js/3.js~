@@ -53,7 +53,7 @@ var SearchFormView = Backbone.View.extend({
 		success: function (response) 
 		{
 		    //jQuery.parseJSON(resonse.toJSON());
-		    alert(response);
+		    alert(response.toJSON());
 		    console.log(response.toJSON());
 		},
 		error: function(error)
