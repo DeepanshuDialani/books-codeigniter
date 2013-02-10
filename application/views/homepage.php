@@ -56,10 +56,10 @@
 	</style>
 </head>
 <body>
-	<script src="<?php echo base_url(); ?>js/jquery-1.7.1.min"></script>
+	<script src="<?php echo base_url(); ?>js/jquery-1.7.1.min.js"></script>
   	<script src="<?php echo base_url(); ?>js/json2.js"></script>
-  	<script src="<?php echo base_url(); ?>js/underscore-min"></script>
-  	<script src="<?php echo base_url(); ?>js/backbone-min"></script>
+  	<script src="<?php echo base_url(); ?>js/underscore-min.js"></script>
+  	<script src="<?php echo base_url(); ?>js/backbone-min.js"></script>
 	<div id="container">
 		<h1>Book Listings</h1>
 
