@@ -23,7 +23,7 @@ class Get_db extends CI_Model
 		$title=$data->{'title'};
 		$author=$data->{'author'};
 		$status=$data->{'status'};
-		$this->db->query("UPDATE books set title='$title', author='$author', status='$status' where id=$id");
+		$this->db->query("UPDATE books set title='$title', author='$author', status='$status' where id='$id'");
 	}
 	public function delete($data)
 	{
@@ -35,6 +35,6 @@ class Get_db extends CI_Model
 		//$title = $_POST['title'];		
 		$title=$data->{'title'};
 		$query=$this->db->query("SELECT * from books where title='$title'");
-		return $query->result();
+		echo $query->row('id');
 	}
 }

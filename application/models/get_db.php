@@ -35,6 +35,6 @@ class Get_db extends CI_Model
 		//$title = $_POST['title'];		
 		$title=$data->{'title'};
 		$query=$this->db->query("SELECT * from books where title='$title'");
-		return $query->result();
+		return $query->row('id');
 	}
 }

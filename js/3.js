@@ -2,6 +2,7 @@ var SearchFormModel = Backbone.Model.extend({
 	url:"/index.php/searchbook/onsubmit",
 	defaults:
 	{
+		id: '',
 		title:'',
 		author:'',
 		status:''
@@ -47,14 +48,18 @@ var SearchFormView = Backbone.View.extend({
 		title: document.forms['searchBook'].elements[0].value
     	};
     	
-    	formmodel.save({title: document.forms['searchBook'].elements[0].value,author: '', status: '' },
+    	formmodel.save({id:'',title: document.forms['searchBook'].elements[0].value,author: '', status: '' },
     	{
     	
 		success: function (response) 
 		{
-		    //jQuery.parseJSON(resonse.toJSON());
-		    alert(response);
-		    console.log(response.toJSON());
+		    if(response.id>0)
+		    {
+		    	alert("Found!");
+		    	console.log(response.id);
+		    }
+		    else
+		    	alert("Not Found!");
 		},
 		error: function(error)
 		{
